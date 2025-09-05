@@ -12,9 +12,9 @@ class UserSerializer(serializers.ModelSerializer):
             "password": {"write_only": True, "min_length": 5}
         }
 
-    def create(self, validate_data):
+    def create(self, validated_data):
         """create user with encrypted password"""
-        return get_user_model().objects.create_user(**validate_data)
+        return get_user_model().objects.create_user(**validated_data)
 
     def update(self, instance, validate_data):
         """Update User with encrypted password"""

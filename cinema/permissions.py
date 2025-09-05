@@ -1,10 +1,7 @@
 from rest_framework.permissions import BasePermission, SAFE_METHODS
 
 
-class IsAdminAllOrIsAuthenticatedReadOnly(BasePermission):
-    """
-    The request is authenticated as a user, or is a read-only request.
-    """
+class IsAdminOrIfAuthenticatedReadOnly(BasePermission):
 
     def has_permission(self, request, view):
         return bool(
